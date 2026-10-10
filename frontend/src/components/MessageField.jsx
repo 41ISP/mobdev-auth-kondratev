@@ -1,7 +1,20 @@
 import Button from './Button'
 import TextArea from './TextArea'
+import { api } from '../api/api'
 
 const MessageField = () => {
+const handleSumbit = async (e) => {
+e.preventDefault()
+
+const message = {
+content: e.target.content.value
+}
+try{
+await api.sendMessage(massage)
+} catch (error) {
+console.error(error)
+}
+}
     return (
         <div className="create-message-section">
             <div className="container">
@@ -19,6 +32,8 @@ const MessageField = () => {
             </div>
         </div>
     )
+
 }
+
 
 export default MessageField
